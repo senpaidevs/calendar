@@ -29,3 +29,13 @@ development.db
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
+# Created by https://www.gitignore.io
+
+### Vim ###
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
