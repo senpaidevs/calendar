@@ -9,7 +9,7 @@ class Event
   property :id, Serial
   property :title, String
   property :description, Text
-  property :date, Date
+  property :date, DateTime
 end
 
 DataMapper.finalize
