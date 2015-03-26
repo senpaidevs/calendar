@@ -26,9 +26,13 @@ describe 'Show events in the city' do
       it 'does not contain past events' do
         expect(last_response.body).not_to include(past_event_title)
       end
-      it 'does not cotains events greater than 30 days' do
-        expect(last_response.body).not_to include(
-          greater_than_30_days_event_title)
+
+      it 'does not contains events beyond 30 days' do
+        expect(last_response.body).not_to include(greater_than_30_days_event_title)
+      end
+
+      it 'contains events within 30 days' do
+        expect(last_response.body).to include(a_title)
       end
     end
   end
