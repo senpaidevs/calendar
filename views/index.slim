@@ -16,6 +16,8 @@ html
           .col-xs-12.col-md-6
             h2
               = event.title
-              small
+              small.hidden-xs style="margin-left: 10px;"
                 = event.date.strftime('%d/%m/%Y a las %H:%M')
+
+            p.visible-xs= event.date.strftime('%d/%m/%Y a las %H:%M')
             p = event.description
