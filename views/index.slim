@@ -12,12 +12,16 @@ html
 
     .container
       .row
-        - for event in events do
-          .col-xs-12.col-md-6
-            h2
-              = event.title
-              small.hidden-xs style="margin-left: 10px;"
-                = event.date.strftime('%d/%m/%Y a las %H:%M')
 
-            p.visible-xs= event.date.strftime('%d/%m/%Y a las %H:%M')
-            p = event.description
+        - for event in events do
+          .col-md-6
+            .row
+              .col-md-7
+                h2
+                  = event.title
+              .col-md-5
+                h2
+                  small
+                    = event.date.strftime('%d/%m/%Y a las %H:%M')
+              .col-md-12
+                p = event.description
