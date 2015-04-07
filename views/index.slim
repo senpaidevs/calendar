@@ -3,7 +3,7 @@ html
   head
     title TIC - Meetups
 
-    link href='https://bootswatch.com/sandstone/bootstrap.min.css' rel='stylesheet'
+    link href='http://bootswatch.com/sandstone/bootstrap.min.css' rel='stylesheet'
   body style="padding-top: 70px;"
     nav.navbar.navbar-fixed-top.navbar-default
       .container
@@ -17,8 +17,8 @@ html
           .col-md-6
             .row
               .col-md-7
-                h2
-                  = event.title
+                h2		  
+                  a href = "/event/#{event.id}" =event.title
               .col-md-5
                 h2
                   small
