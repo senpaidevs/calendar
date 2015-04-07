@@ -10,7 +10,6 @@ class Event
   property :title, String
   property :address, String
   property :place, String
-  property :url, String
   property :description, Text
   property :date, DateTime
   property :url, String
