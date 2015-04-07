@@ -8,3 +8,8 @@ get '/' do
 
   slim :index, locals: {:events => @events}
 end
+
+get '/event/:id' do
+  event = Event.get(params['id']) 
+  slim :detail, locals: {:event => event}
+end

@@ -1,12 +1,12 @@
 require_relative '../event'
 
 describe 'Show events in the city' do
+  let(:today) {Date.today}
+  let(:a_title) {'irrelevant title'}
   context 'when querying events in next 30 days' do
-    let(:a_title) {'irrelevant title'}
     let(:tomorrow_event_title) {'tomorrow event title'}
     let(:past_event_title) {'past event title'}
     let(:greater_than_30_days_event_title) {'greater than 30 days event title'}
-    let(:today) {Date.today}
     let(:tomorrow) {Date.today + 1}
     let(:yesterday) {Date.today - 1}
 
@@ -46,4 +46,23 @@ describe 'Show events in the city' do
       end
     end
   end
+  
+  context 'when querying an detail event' do
+    before (:each) do
+    DataMapper.auto_migrate!
+
+    event = Event.create(title: a_title, date: (today + 5))
+    get "/event/#{event.id}"
+    
+    end
+    it 'is succesful' do
+     expect(last_response).to be_ok 
+    end 
+
+    it 'should contain the event title' do
+      expect(last_response.body).to include(a_title)
+    end 
+  end
+
+   
 end
