@@ -13,6 +13,7 @@ class Event
   property :url, String
   property :description, Text
   property :date, DateTime
+  property :url, String
 end
 
 DataMapper.finalize
