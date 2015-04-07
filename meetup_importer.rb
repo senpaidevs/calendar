@@ -38,7 +38,8 @@ class MeetupImporter
     Event.create(
       title: event['name'],
       description: event['description'],
-      date: Time.at(event['time'].to_i/1000).to_datetime
+      date: Time.at(event['time'].to_i/1000).to_datetime,
+      url: event['event_url']
     )
   end
 
