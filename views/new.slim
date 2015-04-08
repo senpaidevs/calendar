@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title New event
+
+    link href='https://bootswatch.com/sandstone/bootstrap.min.css' rel='stylesheet'
+  body style="padding-top: 70px;"
+    nav.navbar.navbar-fixed-top.navbar-default
+      .container
+        .navbar-header
+          a.navbar-brand href="/" TIC - Meetups
+
+    .container
+      .row
+        form.col-xs-12 action="/events" method="POST"
+          .form-group
+            label for="title" Título
+            input.form-control type="text" name="title" placeholder="Introduce aquí el título del evento"
+          .form-group
+            label for="place" Lugar
+            input.form-control type="text" name="place" placeholder="¿Dónde se celebra el evento?"
+          .form-group
+            label for="date" Horario
+            input.form-control type="text" name="date" placeholder="¿A qué hora es el evento?"
+          .form-group
+            label for="description" Descripción
+            input.form-control type="text" name="description" placeholder="Describe brevemente el evento"
+          .form-group
+            label for="url" URL externa
+            input.form-control type="text" name="url" placeholder="Link al evento (si la hubiera)"
+          button.btn.btn-default type="submit" Crear evento
+
+
