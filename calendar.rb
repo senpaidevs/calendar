@@ -8,3 +8,7 @@ get '/' do
 
   slim :index, locals: {:events => @events}
 end
+
+get '/events/new' do
+  slim :new
+end
