@@ -3,6 +3,31 @@ html
   head 
     title TIC - Meetups
 
+    script src="https://maps.googleapis.com/maps/api/js?v=3.exp"
+
+    javascript:
+      var map;
+      function initialize() {
+      var posicion = new google.maps.LatLng(41.6525435,-0.8904146);
+
+        var mapOptions = {
+          zoom: 17,
+          center: posicion
+        };
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+        var marker = new google.maps.Marker({
+        position: posicion,
+        map: map,
+        title: 'Hello World!'
+        });
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
     link href='http://bootswatch.com/sandstone/bootstrap.min.css' rel='stylesheet'
   body style="padding-top: 70px;"
     nav.navbar.navbar-fixed-top.navbar-default
@@ -13,17 +38,19 @@ html
     .container
       .row
 
-    =event.title
-    br
-    =event.date.strftime('%d/%m/%Y a las %H:%M')   
-    br
-    =event.place
-    br
-    =event.address
-    br
-    =event.description
-    br
+    p =event.title
+    
+    p =event.date.strftime('%d/%m/%Y a las %H:%M')   
+    
+    p =event.place
+    
+    p =event.address
+    
+    p =event.description
+    
     a href=event.url Ir a la web del evento
+
+    div id="map-canvas" style="height: 500px"
     
       
      
