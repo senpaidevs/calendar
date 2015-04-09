@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title TIC - Meetups
+
+    link href='http://bootswatch.com/sandstone/bootstrap.min.css' rel='stylesheet'
+  body style="padding-top: 70px;"
+    nav.navbar.navbar-fixed-top.navbar-default
+      .container
+        .navbar-header
+          a.navbar-brand href="/" TIC - Meetups
+          a.navbar-brand href="/events/new" New Event
+
+    .container
+      == yield
