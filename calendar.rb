@@ -12,3 +12,7 @@ end
 get '/events/new' do
   slim :new
 end
+
+post '/events' do
+  Event.create(title:params[:title], description:params[:description])
+end
