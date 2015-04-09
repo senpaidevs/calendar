@@ -38,16 +38,16 @@ html
     .container
       .row
 
-    =event.title
-    br
-    =event.date.strftime('%d/%m/%Y a las %H:%M')   
-    br
-    =event.place
-    br
-    =event.address
-    br
-    =event.description
-    br
+    p =event.title
+    
+    p =event.date.strftime('%d/%m/%Y a las %H:%M')   
+    
+    p =event.place
+    
+    p =event.address
+    
+    p =event.description
+    
     a href=event.url Ir a la web del evento
 
     div id="map-canvas" style="height: 500px"
