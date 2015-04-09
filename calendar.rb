@@ -13,3 +13,11 @@ get '/event/:id' do
   event = Event.get(params['id']) 
   slim :detail, locals: {:event => event}
 end
+
+get '/events/new' do
+  slim :new
+end
+
+post '/events' do
+  Event.create(title:params[:title], description:params[:description])
+end
