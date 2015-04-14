@@ -1,63 +1,36 @@
+script src="https://maps.googleapis.com/maps/api/js?v=3.exp"
+javascript:
+  var map;
+  function initialize() {
+    var posicion = new google.maps.LatLng(41.6525435,-0.8904146);
 
-doctype html
-html
-  head 
-    title TIC - Meetups
+    var mapOptions = {
+      zoom: 17,
+      center: posicion
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-    script src="https://maps.googleapis.com/maps/api/js?v=3.exp"
+    var marker = new google.maps.Marker({
+    position: posicion,
+    map: map,
+    title: 'Hello World!'
+    });
+  }
 
-    javascript:
-      var map;
-      function initialize() {
-      var posicion = new google.maps.LatLng(41.6525435,-0.8904146);
+  google.maps.event.addDomListener(window, 'load', initialize);
 
-        var mapOptions = {
-          zoom: 17,
-          center: posicion
-        };
-        map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
+.row
+  .col-md-12
+    .row
+        h2 =event.title
+        h2
+          small =event.date.strftime('%d/%m/%Y a las %H:%M')
 
-        var marker = new google.maps.Marker({
-        position: posicion,
-        map: map,
-        title: 'Hello World!'
-        });
-      }
+        p =event.place
+        p =event.address
+        p =event.description
+        p
+          a class="btn btn-primary" href=event.url Ir a la web del evento
 
-      google.maps.event.addDomListener(window, 'load', initialize);
-
-
-
-    link href='http://bootswatch.com/sandstone/bootstrap.min.css' rel='stylesheet'
-  body style="padding-top: 70px;"
-    nav.navbar.navbar-fixed-top.navbar-default
-      .container
-        .navbar-header
-          a.navbar-brand href="/" TIC - Meetups
-
-    .container
-      .row
-
-        .col-md-12
-            .row
-              
-                h2 =event.title
-                
-                h2
-                  small =event.date.strftime('%d/%m/%Y a las %H:%M')   
-                
-                p =event.place
-                
-                p =event.address
-                
-                p =event.description
-                
-                p
-                  a class="btn btn-primary" href=event.url Ir a la web del evento
-
-                div id="map-canvas" style="height: 500px"
-    
-      
-     
+        div id="map-canvas" style="height: 500px"
 
