@@ -7,6 +7,7 @@ require_relative 'event'
 ActiveRecord::Base.configurations = YAML::load(IO.read('db/config.yml'))
 ActiveRecord::Base.establish_connection(ENV.fetch('RACK_ENV', 'development').to_sym)
 
+set :public_folder, File.dirname(__FILE__) + '/static'
 
 get '/' do
   @events = Event.where(date: (Date.today .. Date.today + 30)).order(:date)

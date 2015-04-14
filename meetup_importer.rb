@@ -3,6 +3,10 @@ require 'open-uri'
 
 require_relative 'event'
 
+ActiveRecord::Base.configurations = YAML::load(IO.read('db/config.yml'))
+ActiveRecord::Base.establish_connection(ENV.fetch('RACK_ENV', 'development').to_sym)
+
+
 class MeetupImporter
   def initialize(member_id, key)
     @member_id = member_id
@@ -53,4 +57,7 @@ class MeetupImporter
     "https://api.meetup.com/2/event/#{event_id}?&sign=true&photo-host=public&page=20&member_id=#{@member_id}&key=#{@key}"
   end
 end
+
+importer = MeetupImporter.new(185935379, "2056631f303a3f3a681f4a4d72561c8")
+importer.import
 
