@@ -19,6 +19,7 @@ GEM
       data_objects (= 0.10.15)
     faker (1.4.3)
       i18n (~> 0.5)
+    geocoder (1.2.8)
     i18n (0.7.0)
     rack (1.5.2)
     rack-protection (1.5.2)
@@ -56,6 +57,7 @@ DEPENDENCIES
   dm-migrations
   dm-sqlite-adapter
   faker
+  geocoder
   rack-test
   rspec
   sinatra

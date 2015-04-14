@@ -6,6 +6,7 @@ gem 'dm-sqlite-adapter'
 gem 'rspec'
 gem 'rack-test'
 gem 'slim'
+gem 'geocoder'
 
 group :development do
   gem 'faker'

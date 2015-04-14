@@ -28,3 +28,13 @@ describe 'Create a new event' do
 
   end
 end
+
+describe 'Save an event' do
+  
+  it 'should generate geolocation if the address exists' do
+    event = Event.new(:address => 'Zaragoza')
+    event.save
+    expect(event.lat).not_to be_nil
+    expect(event.long).not_to be_nil
+  end
+end
