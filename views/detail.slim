@@ -10,7 +10,6 @@ javascript:
     var long = place.dataset.longitude;
 
     var posicion = new google.maps.LatLng(lat,long);
-    
 
     var mapOptions = {
       zoom: 17,
@@ -37,7 +36,6 @@ javascript:
         p id='place' data-latitude=event.lat  data-longitude=event.long
          =event.address
 
-       
         p =event.description
         p
           a class="btn btn-primary" href=event.url Ir a la web del evento
@@ -46,5 +44,6 @@ javascript:
           javascript:
             !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 
+        div class="fb-share-button" data-href="http://tic-events.org/event/#{event.id}" data-layout="button_count"
         div id="map-canvas" style="height: 500px"
 
