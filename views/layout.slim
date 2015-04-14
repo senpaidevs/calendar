@@ -5,14 +5,26 @@ html
 
     link href='http://bootswatch.com/sandstone/bootstrap.min.css' rel='stylesheet'
   body style="padding-top: 70px;"
-    nav.navbar.navbar-fixed-top.navbar-default
-      .container
-        .navbar-header
-          a.navbar-brand href="/" TIC - Meetups
+  div id="fb-root"
+  javascript:
 
-        ul.nav.navbar-nav.navbar-right
-          li
-            a href="/events/new" New Event
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk')
+    );
 
+  nav.navbar.navbar-fixed-top.navbar-default
     .container
-      == yield
+      .navbar-header
+        a.navbar-brand href="/" TIC - Meetups
+
+      ul.nav.navbar-nav.navbar-right
+        li
+          a href="/events/new" New Event
+
+  .container
+    == yield
