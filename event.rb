@@ -1,4 +1,4 @@
-require 'activerecord'
+require 'active_record'
 require 'geocoder'
 
 class Event < ActiveRecord::Base
