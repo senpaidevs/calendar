@@ -7,6 +7,7 @@ gem 'rspec'
 gem 'rack-test'
 gem 'slim'
 gem 'geocoder'
+gem 'sinatra-reloader'
 
 group :development do
   gem 'faker'
