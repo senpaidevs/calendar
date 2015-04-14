@@ -11,7 +11,7 @@ describe 'Show events in the city' do
     let(:yesterday) {Date.today - 1}
 
     before(:each) do
-      DataMapper.auto_migrate!
+      Event.destroy_all
 
       Event.create(title: tomorrow_event_title, date: tomorrow)
       Event.create(title: a_title, date: today)
@@ -46,23 +46,19 @@ describe 'Show events in the city' do
       end
     end
   end
-  
+
   context 'when querying an detail event' do
     before (:each) do
-    DataMapper.auto_migrate!
-
-    event = Event.create(title: a_title, date: (today + 5))
-    get "/event/#{event.id}"
-    
+      event = Event.create(title: a_title, date: (today + 5))
+      get "/event/#{event.id}"
     end
+
     it 'is succesful' do
-     expect(last_response).to be_ok 
-    end 
+     expect(last_response).to be_ok
+    end
 
     it 'should contain the event title' do
       expect(last_response.body).to include(a_title)
-    end 
+    end
   end
-
-   
 end

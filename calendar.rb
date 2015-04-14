@@ -3,14 +3,17 @@ require 'slim'
 
 require_relative 'event'
 
-get '/' do
-  @events = Event.all(:date.gte => Date.today, :date.lt => Date.today + 31, :order => [:date.asc])
+ActiveRecord::Base.configurations = YAML::load(IO.read('db/config.yml'))
+ActiveRecord::Base.establish_connection(ENV.fetch('RACK_ENV', 'development').to_sym)
 
+
+get '/' do
+  @events = Event.where(date: (Date.today .. Date.today + 30)).order(:date)
   slim :index, locals: {:events => @events}
 end
 
 get '/event/:id' do
-  event = Event.get(params['id']) 
+  event = Event.find(params['id'])
   slim :detail, locals: {:event => event}
 end
 
