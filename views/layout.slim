@@ -4,7 +4,8 @@ html
     title TIC - Meetups
 
     link href='http://bootswatch.com/sandstone/bootstrap.min.css' rel='stylesheet'
-  body style="padding-top: 70px;"
+    link href='/application.css' rel='stylesheet'
+  body
     nav.navbar.navbar-fixed-top.navbar-default
       .container
         .navbar-header
@@ -16,3 +17,11 @@ html
 
     .container
       == yield
+
+    footer.footer
+      .container
+        p.text-muted.text-center
+          ' Crafted with
+          i.glyphicon.glyphicon-heart
+          '  from
+          a href="http://senpaidevs.com" SenpaiDevs
