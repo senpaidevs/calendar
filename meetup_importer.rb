@@ -58,6 +58,3 @@ class MeetupImporter
   end
 end
 
-importer = MeetupImporter.new(185935379, "2056631f303a3f3a681f4a4d72561c8")
-importer.import
-
