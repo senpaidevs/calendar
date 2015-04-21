@@ -6,11 +6,15 @@ class Event < ActiveRecord::Base
 
   private
     def geolocalize
-      results = Geocoder.search(address)
+	  unless self.lat or self.long
+	    		
+	    	
+	      results = Geocoder.search(address)
 
-      if results.size > 0
-        self.lat = results.first.latitude
-        self.long = results.first.longitude
-      end
-    end
+	      if results.size > 0
+	        self.lat = results.first.latitude
+	        self.long = results.first.longitude
+	      end
+	    end
+	  end
 end
