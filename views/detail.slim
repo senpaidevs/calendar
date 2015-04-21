@@ -1,40 +1,49 @@
-doctype html
-html
-  head 
-    title TIC - Meetups
+script src="https://maps.googleapis.com/maps/api/js?v=3.exp"
+javascript:
+  var map;
+  function initialize() {
 
-    link href='http://bootswatch.com/sandstone/bootstrap.min.css' rel='stylesheet'
-    link href='./bootstrap/css/bootstrap.min.css'
-    link href='../css/bootstrap-datetimepicker.min.css'
 
-  body style="padding-top: 70px;"
-    nav.navbar.navbar-fixed-top.navbar-default
-      .container
-        .navbar-header
-          a.navbar-brand href="/" TIC - Meetups
+    var place = document.getElementById('place');
 
-    .container
-      .row
+    var lat = place.dataset.latitude;
+    var long = place.dataset.longitude;
 
-    =event.title
-    br
-    =event.date.strftime('%d/%m/%Y a las %H:%M')   
-    br
-    =event.place
-    br
-    =event.address
-    br
-    =event.description
-    br
-    a href=event.url Ir a la web del evento
-    
-      
-     
-    
-             
-                  
-            
-           
-           
-        
+    var posicion = new google.maps.LatLng(lat,long);
+
+    var mapOptions = {
+      zoom: 17,
+      center: posicion
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    var marker = new google.maps.Marker({
+    position: posicion,
+    map: map,
+    title: 'Hello World!'
+    });
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+.row
+  .col-md-12
+    .row
+        h2 =event.title
+        h2
+          small =event.date.strftime('%d/%m/%Y a las %H:%M')
+        p =event.place
+        p id='place' data-latitude=event.lat  data-longitude=event.long
+         =event.address
+
+        p =event.description
+        p
+          a class="btn btn-primary" href=event.url Ir a la web del evento
+          a class="twitter-share-button" data-via="SenpaiDevs" data-size="large" href="https://twitter.com/share" Compartir
+
+          javascript:
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+        div class="fb-share-button" data-href="http://tic-events.org/event/#{event.id}" data-layout="button_count"
+        div id="map-canvas" style="height: 500px"
 

@@ -1,46 +1,23 @@
-doctype html
-html
-  head
-    title New event
-    link href='https://bootswatch.com/sandstone/bootstrap.min.css' rel='stylesheet'
-    link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/css/bootstrap-datepicker.min.css' rel='stylesheet'
-    script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'
-    script src='//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.min.js'
-    script src='//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/locales/bootstrap-datepicker.es.min.js'
-    script href='https://bootswatch.com/sandstone/bootstrap.min.css' rel='stylesheet'
+.row
+  form.col-xs-12 action="/events" method="POST"
+    .form-group
+      label for="title" Título
+      input.form-control type="text" name="title" placeholder="Título del evento"
+    .form-group
 
-  body style="padding-top: 70px;"
-    nav.navbar.navbar-fixed-top.navbar-default
-      .container
-        .navbar-header
-          a.navbar-brand href="/" TIC - Meetups
+      label for="date" Fecha y Hora
+      input.form-control.datetime.datepicker data-provide="datepicker" data-date-format="dd/mm/yyyy" name="fecha" placeholder="Fecha y hora a la que se celebra el evento"
 
-    .container
-      .row
-        form.col-xs-12 action="/events" method="POST"
-          .form-group
-            label for="title" Título
-            input.form-control type="text" name="title" placeholder="ITítulo del evento"
-          .form-group
-
-            label for="date" Fecha y Hora
-            input.form-control.datetime name="fecha" placeholder="Fecha y hora a la que se celebra el evento"
-    
-          .form-group
-            label for="place" Lugar
-            input.form-control type="text" name="place" placeholder="Lugar donde se celebra el evento (Ej: eTopia)"
-          .form-group
-            label for="title" Dirección
-            input.form-control type="text" name="address" placeholder="Dirección del lugar donde se celebra el evento"
-          .form-group
-            label for="description" Descripción
-            input.form-control type="text" name="description" placeholder="Describe brevemente el evento"
-          .form-group
-            label for="url" URL externa
-            input.form-control type="text" name="url" placeholder="Link al evento (si la hubiera)"
-          button.btn.btn-default type="submit" Crear evento
-
-    javascript:
-      $(function() {
-        $(".datetime").datepicker({format: 'yyyy-mm-dd'});
-      });
+    .form-group
+      label for="place" Lugar
+      input.form-control type="text" name="place" placeholder="Lugar donde se celebra el evento (Ej: eTopia)"
+    .form-group
+      label for="title" Dirección
+      input.form-control type="text" name="address" placeholder="Dirección del lugar donde se celebra el evento"
+    .form-group
+      label for="description" Descripción
+      input.form-control type="text" name="description" placeholder="Describe brevemente el evento"
+    .form-group
+      label for="url" URL externa
+      input.form-control type="text" name="url" placeholder="Link al evento (si la hubiera)"
+    button.btn.btn-default type="submit" Crear evento

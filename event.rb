@@ -1,18 +1,20 @@
-require 'dm-core'
-require 'dm-migrations'
+require 'active_record'
+require 'geocoder'
 
-DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+class Event < ActiveRecord::Base
+  before_save :geolocalize
 
+  private
+    def geolocalize
+	  unless self.lat or self.long
+	    		
+	    	
+	      results = Geocoder.search(address)
 
-class Event
-  include DataMapper::Resource
-  property :id, Serial
-  property :title, String
-  property :address, String
-  property :place, String
-  property :description, Text
-  property :date, DateTime
-  property :url, String
+	      if results.size > 0
+	        self.lat = results.first.latitude
+	        self.long = results.first.longitude
+	      end
+	    end
+	  end
 end
-
-DataMapper.finalize

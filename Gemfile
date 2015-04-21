@@ -1,12 +1,15 @@
 source 'https://rubygems.org'
 gem 'sinatra'
-gem 'dm-core'
-gem 'dm-migrations'
-gem 'dm-sqlite-adapter'
+gem 'activerecord'
+gem 'standalone_migrations'
 gem 'rspec'
 gem 'rack-test'
 gem 'slim'
+gem 'geocoder'
+gem 'sinatra-reloader'
+gem 'pg'
 
 group :development do
   gem 'faker'
+  gem 'sqlite3'
 end
