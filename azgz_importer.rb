@@ -41,7 +41,7 @@ class AZgzImporter
       description: event['description_t'],
       lat: event['coordenadas_p_0_coordinate'],
       long: event['coordenadas_p_1_coordinate'],
-      date: DateTime.parse(Date.parse(event['fechaInicio_dt']).to_s + " " + event['horaInicio_t']),
+      date: DateTime.parse(Date.parse(event['fechaInicio_dt']).to_s + " " + (event['horaInicio_t'] || '00:00')),
       url: event['uri']
       )
   end
