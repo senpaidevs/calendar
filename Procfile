@@ -1,1 +1,1 @@
-web: bundle exec ruby calendar.rb -p $PORT
+web: bundle exec ruby webapp/app.rb -p $PORT
