@@ -2,14 +2,21 @@ source 'https://rubygems.org'
 gem 'sinatra'
 gem 'activerecord'
 gem 'standalone_migrations'
-gem 'rspec'
-gem 'rack-test'
 gem 'slim'
 gem 'geocoder'
-gem 'sinatra-reloader'
-gem 'pg'
+
+group :test do
+  gem 'rack-test'
+  gem 'rspec'
+
+end
 
 group :development do
   gem 'faker'
+  gem 'sinatra-reloader'
   gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end

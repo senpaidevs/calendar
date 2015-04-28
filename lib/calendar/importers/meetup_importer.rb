@@ -1,7 +1,7 @@
 require 'json'
 require 'open-uri'
 
-require_relative 'event'
+require_relative '../event'
 
 ActiveRecord::Base.configurations = YAML::load(IO.read('db/config.yml'))
 ActiveRecord::Base.establish_connection(ENV.fetch('RACK_ENV', 'development').to_sym)

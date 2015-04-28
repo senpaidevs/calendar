@@ -1,5 +1,3 @@
-require_relative '../event'
-
 describe 'Create a new event' do
   context 'when showing the form' do
     it "is succesful" do

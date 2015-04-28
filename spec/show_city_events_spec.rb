@@ -1,5 +1,3 @@
-require_relative '../event'
-
 describe 'Show events in the city' do
   let(:today) {Date.today}
   let(:a_title) {'irrelevant title'}
