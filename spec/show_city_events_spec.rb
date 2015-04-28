@@ -1,4 +1,4 @@
-require_relative '../event'
+require_relative '../lib/calendar/event'
 
 describe 'Show events in the city' do
   let(:today) {Date.today}

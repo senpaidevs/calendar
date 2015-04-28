@@ -2,7 +2,7 @@ require 'json'
 require 'open-uri'
 require 'date'
 
-require_relative 'event'
+require_relative '../event'
 
 if ENV['DATABASE_URL'].nil?
   ActiveRecord::Base.configurations = YAML::load(IO.read('db/config.yml'))

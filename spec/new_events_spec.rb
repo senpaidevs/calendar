@@ -1,4 +1,4 @@
-require_relative '../event'
+require_relative '../lib/calendar/event'
 
 describe 'Create a new event' do
   context 'when showing the form' do

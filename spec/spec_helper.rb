@@ -1,5 +1,5 @@
 require 'rack/test'
-require_relative '../calendar'
+require_relative '../webapp/app'
 
 ENV['RACK_ENV'] = 'test'
 
