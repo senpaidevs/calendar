@@ -4,19 +4,7 @@ require 'date'
 
 require_relative '../event'
 
-if ENV['DATABASE_URL'].nil?
-  ActiveRecord::Base.configurations = YAML::load(IO.read('db/config.yml'))
-  ActiveRecord::Base.establish_connection(ENV.fetch('RACK_ENV', 'development').to_sym)
-else
-  ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
-end
-
 class AZgzImporter
-  # def initialize(member_id, key)
-  #   @member_id = member_id
-  #   @key = key
-  # end
-
   def import
     find_events.each do |event|
       import_next_event_for(event)
@@ -33,7 +21,6 @@ class AZgzImporter
   end
 
   def import_next_event_for(event)
-    
     Event.create(
       title: event['title'],
       address: event['direccionlugar_t'],
@@ -49,6 +36,5 @@ class AZgzImporter
   def events_url
     "http://www.zaragoza.es/buscador/select?wt=json&q=-tipocontenido_s:estatico%20AND%20category:Actividades%20AND%20fechaInicio_dt:[NOW%20TO%20NOW%2B1MONTH]&fq=temas_smultiple:(%22Tecnologia%20y%20Ciudadania%22),(%22tecnologia%20y%20ciudadania%22)"
   end
-
 end
 
