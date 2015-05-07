@@ -1,4 +1,5 @@
 language: ruby
 rvm:
   - 2.2.0
+before_script: bundle exec rake db:setup
 script: bundle exec rspec
