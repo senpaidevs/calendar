@@ -35,12 +35,16 @@ class MeetupImporter
     event_id = group['next_event']['id']
     event = find_event_by_id(event_id)
 
-    Event.create(
-      title: event['name'],
-      description: event['description'],
-      date: Time.at(event['time'].to_i/1000).to_datetime,
-      url: event['event_url']
-    )
+    count = Event.where(url: event['uri']).count
+
+    if(count==0)
+      Event.create(
+        title: event['name'],
+        description: event['description'],
+        date: Time.at(event['time'].to_i/1000).to_datetime,
+        url: event['event_url']
+      )
+    end
   end
 
   def find_event_by_id(event_id)
