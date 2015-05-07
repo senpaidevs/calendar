@@ -1,4 +1,5 @@
 require_relative '../calendar/importers'
+require_relative '../calendar/infrastructure'
 
 namespace :importers do
   desc "Import events from external sources"

@@ -21,16 +21,20 @@ class AZgzImporter
   end
 
   def import_next_event_for(event)
-    Event.create(
-      title: event['title'],
-      address: event['direccionlugar_t'],
-      place: event['nombrelugar_t'],
-      description: event['description_t'],
-      lat: event['coordenadas_p_0_coordinate'],
-      long: event['coordenadas_p_1_coordinate'],
-      date: DateTime.parse(Date.parse(event['fechaInicio_dt']).to_s + " " + (event['horaInicio_t'] || '00:00')),
-      url: event['uri']
+    count = Event.where(url: event['uri']).count
+
+    if(count==0)
+      Event.create(
+        title: event['title'],
+        address: event['direccionlugar_t'],
+        place: event['nombrelugar_t'],
+        description: event['description_t'],
+        lat: event['coordenadas_p_0_coordinate'],
+        long: event['coordenadas_p_1_coordinate'],
+        date: DateTime.parse(Date.parse(event['fechaInicio_dt']).to_s + " " + (event['horaInicio_t'] || '00:00')),
+        url: event['uri']
       )
+    end
   end
 
   def events_url
