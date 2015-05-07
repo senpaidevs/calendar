@@ -1,8 +1,6 @@
 require 'rack/test'
 require_relative '../webapp/app'
 
-ENV['RACK_ENV'] = 'test'
-
 module RSpecMixin
   include Rack::Test::Methods
 
