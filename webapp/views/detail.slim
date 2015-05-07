@@ -30,7 +30,7 @@ javascript:
   .col-md-6
         h2 =event.title
   .col-md-6
-        h2
+        h2.text-right
           small =event.date.strftime('%d/%m/%Y a las %H:%M')
 .row
     .col-md-6
@@ -43,7 +43,7 @@ javascript:
 .row
     .col-md-4
         a class="btn btn-primary" href=event.url Ir a la web del evento
-    .col-md-1.pull-right 
+    .col-md-1.pull-right
           a class="twitter-share-button" data-via="SenpaiDevs" href="https://twitter.com/share" Compartir
     .col-md-1.pull-right
       div class="fb-share-button" data-href="http://tic-events.org/event/#{event.id}" data-layout="button_count"
@@ -51,5 +51,5 @@ javascript:
     .col-md-12
         javascript:
           !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-        - if event.lat and event.long  
+        - if event.lat and event.long
           div id="map-canvas" style="height: 500px; margin-top: 20px"
