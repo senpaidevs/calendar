@@ -39,7 +39,7 @@ javascript:
          =event.address
 .row
   .col-md-12
-        p =event.description
+        p ==event.description
 .row
     .col-md-4
         a class="btn btn-primary" href=event.url Ir a la web del evento
@@ -51,5 +51,5 @@ javascript:
     .col-md-12
         javascript:
           !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-
-        div id="map-canvas" style="height: 500px; margin-top: 20px"
+        - if event.lat and event.long  
+          div id="map-canvas" style="height: 500px; margin-top: 20px"
