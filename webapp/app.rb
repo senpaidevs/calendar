@@ -22,5 +22,14 @@ get '/events/new' do
 end
 
 post '/events' do
-  Event.create(title:params[:title], description:params[:description])
+  Event.create(
+    title: params[:title],
+    address: params[:address],
+    place: params[:place],
+    description: params[:description],
+    date: params[:date],
+    url: params[:url],
+  )
+
+  redirect '/'
 end
